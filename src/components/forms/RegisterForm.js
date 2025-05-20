@@ -5,6 +5,7 @@
 import React,{useState} from "react";
 import InputField from "./InputField";
 import '../../styles/RegisterPageStyle.css';
+import { registerUser } from "../../services/authService";
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ const RegisterForm = () => {
     });
 
     const [error, setError] = useState(null);
+
+    const [successMessage, setSuccessMessage] = useState("");
 
     const handleChange = (e) => {
 
@@ -29,10 +32,13 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            alert("Registration successful")
+            const response = await registerUser(formData);
+            setSuccessMessage(response.username + " successfully registered!");
+            setError("");
 
         } catch(error) {
-            setError(error);
+            setSuccessMessage("");  // Clear any previous success message
+            setError(error.message);  // Assuming `err.message` contains the error message
         }
     };
 
@@ -40,6 +46,8 @@ const RegisterForm = () => {
         <form onSubmit={handleSubmit}>
             <h2>Register</h2>
             {error && <p className="error">{error}</p>}
+            {/* Show success message if registration is successful */}
+            {successMessage && <div style={{ color: "green" }}>{successMessage}</div>}
             <InputField className="form-group"
             label="Username"
             name="username"
