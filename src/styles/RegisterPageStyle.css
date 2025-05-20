@@ -1,0 +1,62 @@
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-field label {
+  width: 120px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.input-field input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.register-page {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.register-page {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
