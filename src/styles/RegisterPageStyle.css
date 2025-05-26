@@ -57,6 +57,20 @@ form {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #584685;
   border-radius: 8px;
 }
+
+ .login-container {
+    font-size: 1.25rem;
+  }
+  .login-text {
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    user-select: none;
+  }
+  .login-text:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
