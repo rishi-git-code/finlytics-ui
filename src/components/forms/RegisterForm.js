@@ -100,14 +100,14 @@ const RegisterForm = () => {
   {isSignIn ? (
     <>
       Don't have an account?{" "}
-      <span className="text-blue-500 hover:text-blue-700 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5" onClick={toggleSignIn}>
+      <span className="login-text" onClick={toggleSignIn}>
         Sign up
       </span>
     </>
   ) : (
     <>
       Already have an account?{" "}
-      <span className="text-blue-500 hover:text-blue-700 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5" onClick={toggleSignIn}>
+      <span className="login-text" onClick={toggleSignIn}>
         Log in
       </span>
     </>

@@ -6,7 +6,7 @@ const RegisterPage = () => {
     return (
         <div className="page-background">
             <div className="register-page">
-                <h1>Welcome to the Registration Page</h1>
+                <h1>Welcome to FinLytics</h1>
                 <RegisterForm/>
             </div>
         </div>
