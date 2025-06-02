@@ -1,5 +1,7 @@
+const API_BASE_URL = process.env.APP_API_BASE_URL;
+
 export const registerUser = async (userData) => {
-    const response = await fetch("http://localhost:8080/api/v1/user/register", {
+    const response = await fetch(`${API_BASE_URL}/api/v1/user/register`, {
         method : 'POST',
         headers : {
             'Content-Type':'application/json',
