@@ -5,7 +5,7 @@
 import React,{useState} from "react";
 import InputField from "./InputField";
 import '../../styles/RegisterPageStyle.css';
-import { registerUser } from "../../services/authService";
+import { registerUser, loginUser } from "../../services/authService";
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -38,9 +38,19 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
+          if (!/^\d{10}$/.test(formData.phoneNumber)) {
+            alert("Phone number must be exactly 10 digits");
+            return;
+          }
+          if(isSignIn){
+            const response = await loginUser(formData);
+            setSuccessMessage(response.message);
+            setError("");
+          } else{
             const response = await registerUser(formData);
             setSuccessMessage(response.username + " successfully registered!");
             setError("");
+          }   
 
         } catch(error) {
             setSuccessMessage("");  // Clear any previous success message
@@ -72,7 +82,7 @@ const RegisterForm = () => {
             <InputField className="form-group"
             label="Password"
             name="password"
-            type="text"
+            type="password"
             value={formData.password}
             onChange={handleChange}
             />
@@ -80,7 +90,11 @@ const RegisterForm = () => {
             <InputField className="form-group"
             label="PhoneNumber"
             name="phoneNumber"
-            type="number"
+            type="text"
+            pattern="\d{10}"
+            maxLength="10"
+            minLength="10"
+            title="Phone number must be 10 digits"
             value={formData.phoneNumber}
             onChange={handleChange}
             />}
