@@ -38,15 +38,16 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-          if (!/^\d{10}$/.test(formData.phoneNumber)) {
-            alert("Phone number must be exactly 10 digits");
-            return;
-          }
+          
           if(isSignIn){
             const response = await loginUser(formData);
             setSuccessMessage(response.message);
             setError("");
           } else{
+            if (!/^\d{10}$/.test(formData.phoneNumber)) {
+            alert("Phone number must be exactly 10 digits");
+            return;
+          }
             const response = await registerUser(formData);
             setSuccessMessage(response.username + " successfully registered!");
             setError("");
