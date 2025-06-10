@@ -1,16 +1,16 @@
 #!/bin/bash
 cd /home/ec2-user/finlytics/finlytics-ui || exit
 
-echo "ðŸ”„ Pulling latest code..."
+echo "📥 Pulls the latest code"
 git pull origin main
 
-echo "ðŸ”¨ installing npm..."
+echo "📦 Installs any updated packages"
 npm install
 
-echo "ðŸ›‘ building with npm..."
+echo "🏗️ Builds the frontend"
 npm run build
 
-echo "ðŸš€ Starting new app..."
+echo "🔄 Reloads the server"
 sudo systemctl reload nginx
 
-echo "âœ… Deployment complete!"
+echo "✅ Deployment complete! 🎉"
