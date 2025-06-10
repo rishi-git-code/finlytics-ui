@@ -32,6 +32,8 @@ export const loginUser = async (userData) => {
         throw new Error(errorData.message || "User login failed")
     }
     const successData = await response.json();
+    // On successful login
+    localStorage.setItem("token", successData.jwtToken);
     console.log("Login Successful:",successData);
     return successData;
 };
