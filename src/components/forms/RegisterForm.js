@@ -3,11 +3,14 @@
 */
 
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 import InputField from "./InputField";
 import '../../styles/RegisterPageStyle.css';
 import { registerUser, loginUser } from "../../services/authService";
 
 const RegisterForm = () => {
+
+  const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username:'',
         email:'',
@@ -22,9 +25,16 @@ const RegisterForm = () => {
 
     const [successMessage, setSuccessMessage] = useState("");
 
-    const toggleSignIn = () => {
-        setSignIn(!isSignIn);
-    }
+  const toggleSignIn = () => {
+    setSignIn(!isSignIn);
+    setFormData({
+      username: '',
+      email: '',
+      password: '',
+      role: '',
+      phoneNumber: ''
+    });
+  }
 
     const handleChange = (e) => {
 
@@ -41,6 +51,10 @@ const RegisterForm = () => {
           
           if(isSignIn){
             const response = await loginUser(formData);
+            const token = localStorage.getItem("token");
+            if(token){
+              navigate('home');
+            }
             setSuccessMessage(response.message);
             setError("");
           } else{

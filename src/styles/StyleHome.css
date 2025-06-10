@@ -1,0 +1,93 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #4facfe, #fe00be);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Feature Menu */
+.feature-menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.feature-menu div {
+  text-align: center;
+  max-width: 200px;
+}
+
+.feature-menu h3 {
+  color: #007acc;
+}
+
+/* Preview Section */
+.preview {
+  padding: 60px 20px;
+  background-color: #eef1f5;
+  text-align: center;
+}
+
+.preview h2 {
+  margin-bottom: 20px;
+}
+
+.preview img {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us li {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+footer nav a {
+  color: #90cdf4;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
