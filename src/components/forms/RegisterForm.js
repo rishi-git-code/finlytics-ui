@@ -50,7 +50,8 @@ const RegisterForm = () => {
         try{
           
           if(isSignIn){
-            const response = await loginUser(formData);
+            const {email, password} = formData;
+            const response = await loginUser({email, password});
             const token = localStorage.getItem("token");
             if(token){
               navigate('home');
