@@ -37,3 +37,21 @@ export const loginUser = async (userData) => {
     console.log("Login Successful:",successData);
     return successData;
 };
+
+export const validateToken = async() => {
+    console.log("API VALIDATION STARTED");
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_BASE_URL}/api/token`, {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    if(!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Token is Invalid/Expired")
+    }
+    console.log("Token is valid...",response);
+    return true;
+};
